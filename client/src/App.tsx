@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import MyProjects from "./pages/MyProjects";
+import Recommendations from "./pages/Recommendations";
 
 const App = () => {
   return (
@@ -8,9 +10,13 @@ const App = () => {
       <div className="relative min-h-screen bg-[#030303] overflow-hidden">
         <Navbar />
         <main className="h-screen">
-          {/* <Routes> */}
-            {/* <Route path="/" element={<Home/>} /> */}
-          {/* </Routes> */}
+          <Routes>
+            <Route path="/Project" element={<MyProjects/>} />
+            <Route path="/Recommendations" element={<Recommendations/>} />
+            
+            
+          </Routes>
+          
         </main>
 
         {/* Background Elements */}
