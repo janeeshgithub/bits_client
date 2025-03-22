@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import Navbar from './components/Navbar';
 
 const App = () => {
@@ -8,9 +8,9 @@ const App = () => {
       <div className="relative min-h-screen bg-[#030303] overflow-hidden">
         <Navbar />
         <main className="h-screen">
-          <Routes>
-            <Route path="/" element={<Home/>} />
-          </Routes>
+          {/* <Routes> */}
+            {/* <Route path="/" element={<Home/>} /> */}
+          {/* </Routes> */}
         </main>
 
         {/* Background Elements */}
