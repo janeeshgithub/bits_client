@@ -1,41 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
 
 const Navbar = () => {
-  const navRef = useRef(null);
-
-  useEffect(() => {
-    gsap.from(navRef.current, {
-      y: -100,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power4.out",
-    });
-  }, []);
-
   return (
-    <nav 
-      ref={navRef} 
-      className="fixed w-full z-50 bg-[#0f0f0f]/90 backdrop-blur-md border-b border-[#2a2a2a]"
-    >
+    <nav className="fixed w-full z-50 bg-[#1E1E2E]/90 backdrop-blur-md border-b border-[#4A90E2]/20">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-2xl font-bold"
-            >
-              <span className="bg-gradient-to-r from-[#4f46e5] to-[#06b6d4] text-transparent bg-clip-text">
-                EduVision
-              </span>
-            </motion.div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-[#4A90E2] to-[#00D4FF] text-transparent bg-clip-text">
+              EduVision
+            </span>
           </Link>
 
+          {/* Navigation Items */}
           <div className="hidden md:flex items-center space-x-8">
-            {['Home', 'Explore', 'Community', 'Resources'].map((item, i) => (
+            {['Home', 'Projects', 'Community', 'Resources'].map((item, i) => (
               <motion.div
                 key={item}
                 initial={{ opacity: 0, y: -20 }}
@@ -44,30 +25,26 @@ const Navbar = () => {
               >
                 <Link
                   to={item.toLowerCase()}
-                  className="text-gray-300 hover:text-[#4f46e5] transition-colors duration-200 text-sm font-medium"
+                  className="text-[#EAEAEA] hover:text-[#00D4FF] transition-colors duration-200 text-sm font-medium relative group"
                 >
-                  {item}
+                  <span>{item}</span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4FF] group-hover:w-full transition-all duration-300"/>
                 </Link>
               </motion.div>
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
-            >
-              Sign In
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-gradient-to-r from-[#4f46e5] to-[#06b6d4] text-white rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-[#4f46e5]/25 transition-all duration-200"
-            >
-              Get Started
-            </motion.button>
-          </div>
+          {/* Auth Button */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-4 py-2 bg-[#252733] text-[#EAEAEA] rounded-lg text-sm font-medium
+                     border border-[#4A90E2]/20 hover:border-[#4A90E2]/40 
+                     shadow-lg shadow-[#4A90E2]/5 hover:shadow-[#4A90E2]/10 
+                     transition-all duration-300"
+          >
+            Sign In
+          </motion.button>
         </div>
       </div>
     </nav>
